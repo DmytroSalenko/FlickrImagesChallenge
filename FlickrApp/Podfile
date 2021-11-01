@@ -1,0 +1,5 @@
+use_modular_headers!
+
+target 'FlickrApp' do
+  pod 'SDWebImageSwiftUI'
+end

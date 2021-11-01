@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct FeedGrid: View {
   private var feedItems: [FlickrFeedItem]
@@ -18,9 +19,12 @@ struct FeedGrid: View {
   var body: some View {
     ScrollView {
       LazyVGrid(columns: gridItemLayout, spacing: 5) {
-        ForEach(feedItems) {
-          Color.blue
-            .overlay(Text($0.author))
+        ForEach(feedItems) { feedData in
+          NavigationLink(
+            destination: DetailsView(),
+            label: {
+              AsyncWebImage(url: feedData.sourceURL)
+            })
         }
       }
     }

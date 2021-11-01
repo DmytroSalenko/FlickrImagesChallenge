@@ -13,11 +13,14 @@ struct ContentView: View {
   @State private var tagSearchData: Loadable<FlickrFeed> = .idle
   
   var body: some View {
-    VStack {
-      searchTextField
-      .padding()
-      
-      pageContentView
+    NavigationView {
+      VStack {
+        searchTextField
+        .padding()
+        
+        pageContentView
+      }
+      .navigationBarHidden(true)
     }
     .onDisappear {
       injected.interactors.flickrFeedInteractor.cancelSubscriptions()
@@ -32,13 +35,17 @@ private extension ContentView {
     VStack {
       HStack(spacing: 10) {
         Image(systemName: "magnifyingglass")
-        TextField("One or multiple comma-separated tags" ,
-                  text: $searchTags
-                    .onSet {
-                      if !$0.isEmpty {
-                        performTagSearch(tags: $0)
-                      }
-                    })
+        TextField(
+          "One or multiple comma-separated tags",
+          text:
+            $searchTags
+            .onSet {
+              if !$0.isEmpty {
+                performTagSearch(tags: $0)
+              } else {
+                clearFeed()
+              }
+            })
       }
     }
   }
@@ -46,14 +53,22 @@ private extension ContentView {
   @ViewBuilder var pageContentView: some View {
     switch tagSearchData {
     case .idle:
-      Spacer()
+      noResultsText
     case .isLoading:
       loadingAnimation
     case .loaded(let data):
       FeedGrid(items: data.items)
-    case .failed(let error):
+    case .failed(_):
       Spacer()
     @unknown default:
+      Spacer()
+    }
+  }
+  
+  @ViewBuilder var noResultsText: some View {
+    VStack {
+      Spacer()
+      Text("Nothing to show yet")
       Spacer()
     }
   }
@@ -72,6 +87,10 @@ private extension ContentView {
 private extension ContentView {
   func performTagSearch(tags: String) {
     injected.interactors.flickrFeedInteractor.performLogIn($tagSearchData, tags: searchTags)
+  }
+  
+  func clearFeed() {
+    tagSearchData = .idle
   }
 }
 

@@ -28,6 +28,10 @@ extension FlickrFeed {
     var author: String
     var authorId: String
     var tags: String
+    
+    var sourceURL: URL? {
+      return URL(string: self.media.m)
+    }
   }
 }
 
