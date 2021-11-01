@@ -17,7 +17,8 @@ struct FlickrFeed {
 }
 
 extension FlickrFeed {
-  struct Item {
+  struct Item: Identifiable {
+    let id = UUID()
     var title: String
     var link: String
     var media: MediaData

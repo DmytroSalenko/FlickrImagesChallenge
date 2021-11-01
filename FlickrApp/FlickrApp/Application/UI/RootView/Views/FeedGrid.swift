@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct FeedGrid: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  private var feedItems: [FlickrFeedItem]
+  private var gridItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+  
+  init(items: [FlickrFeedItem]) {
+    feedItems = items
+  }
+  
+  var body: some View {
+    ScrollView {
+      LazyVGrid(columns: gridItemLayout, spacing: 5) {
+        ForEach(feedItems) {
+          Color.blue
+            .overlay(Text($0.author))
+        }
+      }
     }
+  }
 }
 
 struct FeedGrid_Previews: PreviewProvider {
-    static var previews: some View {
-        FeedGrid()
-    }
+  static var previews: some View {
+    FeedGrid(items: [])
+  }
 }

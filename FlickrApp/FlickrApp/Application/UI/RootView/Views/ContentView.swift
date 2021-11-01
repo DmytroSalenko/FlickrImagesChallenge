@@ -50,7 +50,7 @@ private extension ContentView {
     case .isLoading:
       loadingAnimation
     case .loaded(let data):
-      Spacer()
+      FeedGrid(items: data.items)
     case .failed(let error):
       Spacer()
     @unknown default:
