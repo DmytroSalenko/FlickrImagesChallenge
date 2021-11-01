@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
   @Environment(\.injected) private var injected: DIContainer
   @State private var searchTags = ""
-  @State private var tagSearchData: Loadable<FlickrFeedDTO> = .idle
+  @State private var tagSearchData: Loadable<FlickrFeed> = .idle
   
   var body: some View {
     VStack {
