@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol FlickrFeedInteractorProtocol {
-  
+protocol FlickrFeedInteractorProtocol: Unsubscriptable {
+  func performLogIn(_ feedDataStatus: LoadableSubject<FlickrFeedDTO>, tags: String)
 }
 
 final class FlickrFeedInteractor: FlickrFeedInteractorProtocol {
@@ -18,8 +18,25 @@ final class FlickrFeedInteractor: FlickrFeedInteractorProtocol {
   init(flickrFeedClient: FlickrFeedClient) {
     self.flickrFeedClient = flickrFeedClient
   }
+  
+  deinit {
+    cancelSubscriptions()
+  }
+  
+  func performLogIn(_ feedDataStatus: LoadableSubject<FlickrFeedDTO>, tags: String) {
+    feedDataStatus.wrappedValue.setIsLoading()
+    
+    flickrFeedClient.getFeed(endpoint: .getFeed(tags: tags))
+      .sinkToLoadable {
+        feedDataStatus.wrappedValue = $0
+      }.store(in: cancelBag)
+  }
+  
 }
 
 struct StubFlickrFeedInteractor: FlickrFeedInteractorProtocol {
-  
+  var cancelBag = CancelBag()
+  func performLogIn(_ feedDataStatus: LoadableSubject<FlickrFeedDTO>, tags: String) {
+    
+  }
 }

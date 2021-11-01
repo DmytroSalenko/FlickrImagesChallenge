@@ -28,6 +28,8 @@
 		B8774600272FBD0C00F03911 /* FlickrFeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87745FF272FBD0C00F03911 /* FlickrFeedInteractor.swift */; };
 		B8774602272FC47700F03911 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8774601272FC47700F03911 /* AppEnvironment.swift */; };
 		B8774604272FC4E300F03911 /* FlickrFeedClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8774603272FC4E300F03911 /* FlickrFeedClient.swift */; };
+		B8862B6B2730683100832DB8 /* Binding+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8862B6A2730683100832DB8 /* Binding+Additions.swift */; };
+		B8862B6D2730757700832DB8 /* FeedGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8862B6C2730757700832DB8 /* FeedGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		B87745FF272FBD0C00F03911 /* FlickrFeedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrFeedInteractor.swift; sourceTree = "<group>"; };
 		B8774601272FC47700F03911 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		B8774603272FC4E300F03911 /* FlickrFeedClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrFeedClient.swift; sourceTree = "<group>"; };
+		B8862B6A2730683100832DB8 /* Binding+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Additions.swift"; sourceTree = "<group>"; };
+		B8862B6C2730757700832DB8 /* FeedGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,8 +180,8 @@
 		B87745DE272F942F00F03911 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B87745FA272FB99600F03911 /* DAOs */,
-				B87745F9272FB98F00F03911 /* DTOs */,
+				B87745FA272FB99600F03911 /* DAO */,
+				B87745F9272FB98F00F03911 /* DTO */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -252,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				B87745B1272F93EE00F03911 /* ContentView.swift */,
+				B8862B6C2730757700832DB8 /* FeedGrid.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,23 +273,24 @@
 			isa = PBXGroup;
 			children = (
 				B87745F7272FB7E700F03911 /* JSONDecoder+Additions.swift */,
+				B8862B6A2730683100832DB8 /* Binding+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		B87745F9272FB98F00F03911 /* DTOs */ = {
+		B87745F9272FB98F00F03911 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
 				B87745F4272FB1FE00F03911 /* FlickrFeedDTO.swift */,
 			);
-			path = DTOs;
+			path = DTO;
 			sourceTree = "<group>";
 		};
-		B87745FA272FB99600F03911 /* DAOs */ = {
+		B87745FA272FB99600F03911 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = DAOs;
+			path = DAO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,11 +426,13 @@
 				B87745FE272FBCC200F03911 /* InteractorsContainer.swift in Sources */,
 				B87745AE272F93EE00F03911 /* AppDelegate.swift in Sources */,
 				B87745B0272F93EE00F03911 /* SceneDelegate.swift in Sources */,
+				B8862B6D2730757700832DB8 /* FeedGrid.swift in Sources */,
 				B8774600272FBD0C00F03911 /* FlickrFeedInteractor.swift in Sources */,
 				B87745F8272FB7E700F03911 /* JSONDecoder+Additions.swift in Sources */,
 				B8774602272FC47700F03911 /* AppEnvironment.swift in Sources */,
 				B87745E9272F9E1300F03911 /* CancelBag.swift in Sources */,
 				B87745FC272FBC5600F03911 /* DependencyInjector.swift in Sources */,
+				B8862B6B2730683100832DB8 /* Binding+Additions.swift in Sources */,
 				B87745B2272F93EE00F03911 /* ContentView.swift in Sources */,
 				B87745EB272FA18D00F03911 /* APIEndpoint.swift in Sources */,
 				B87745F3272FA65000F03911 /* NetworkingHelpers.swift in Sources */,
