@@ -10,7 +10,7 @@ import SwiftUI
 
 
 // MARK: - DIContainer
-class DIContainer: EnvironmentKey {
+final class DIContainer: EnvironmentKey {
   typealias Value = DIContainer
   static var defaultValue: DIContainer = DIContainer(interactors: .stub)
   

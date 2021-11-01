@@ -26,6 +26,8 @@
 		B87745FC272FBC5600F03911 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87745FB272FBC5600F03911 /* DependencyInjector.swift */; };
 		B87745FE272FBCC200F03911 /* InteractorsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87745FD272FBCC200F03911 /* InteractorsContainer.swift */; };
 		B8774600272FBD0C00F03911 /* FlickrFeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87745FF272FBD0C00F03911 /* FlickrFeedInteractor.swift */; };
+		B8774602272FC47700F03911 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8774601272FC47700F03911 /* AppEnvironment.swift */; };
+		B8774604272FC4E300F03911 /* FlickrFeedClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8774603272FC4E300F03911 /* FlickrFeedClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		B87745FB272FBC5600F03911 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
 		B87745FD272FBCC200F03911 /* InteractorsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorsContainer.swift; sourceTree = "<group>"; };
 		B87745FF272FBD0C00F03911 /* FlickrFeedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrFeedInteractor.swift; sourceTree = "<group>"; };
+		B8774601272FC47700F03911 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		B8774603272FC4E300F03911 /* FlickrFeedClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrFeedClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,7 @@
 				B87745EA272FA18D00F03911 /* APIEndpoint.swift */,
 				B87745EC272FA2E200F03911 /* APIClient.swift */,
 				B87745EE272FA30C00F03911 /* APIError.swift */,
+				B8774603272FC4E300F03911 /* FlickrFeedClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 			children = (
 				B87745AD272F93EE00F03911 /* AppDelegate.swift */,
 				B87745AF272F93EE00F03911 /* SceneDelegate.swift */,
+				B8774601272FC47700F03911 /* AppEnvironment.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -416,6 +422,7 @@
 				B87745B0272F93EE00F03911 /* SceneDelegate.swift in Sources */,
 				B8774600272FBD0C00F03911 /* FlickrFeedInteractor.swift in Sources */,
 				B87745F8272FB7E700F03911 /* JSONDecoder+Additions.swift in Sources */,
+				B8774602272FC47700F03911 /* AppEnvironment.swift in Sources */,
 				B87745E9272F9E1300F03911 /* CancelBag.swift in Sources */,
 				B87745FC272FBC5600F03911 /* DependencyInjector.swift in Sources */,
 				B87745B2272F93EE00F03911 /* ContentView.swift in Sources */,
@@ -425,6 +432,7 @@
 				B87745F1272FA55F00F03911 /* Loadable.swift in Sources */,
 				B87745ED272FA2E200F03911 /* APIClient.swift in Sources */,
 				B87745EF272FA30C00F03911 /* APIError.swift in Sources */,
+				B8774604272FC4E300F03911 /* FlickrFeedClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

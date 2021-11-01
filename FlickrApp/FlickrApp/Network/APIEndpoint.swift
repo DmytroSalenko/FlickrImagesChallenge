@@ -13,7 +13,7 @@ enum APIMethod: String {
 }
 
 struct APIEndpoint {
-  var host: String = "test"
+  var host: String = "api.flickr.com"
   var path: String
   var method: String = APIMethod.get.rawValue
   var scheme: String = "https"
