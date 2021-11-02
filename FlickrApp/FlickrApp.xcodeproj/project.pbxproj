@@ -35,6 +35,7 @@
 		B8862B7227307A8600832DB8 /* FlickrFeedMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8862B7127307A8600832DB8 /* FlickrFeedMapper.swift */; };
 		B8862B74273096CC00832DB8 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8862B73273096CC00832DB8 /* DetailsView.swift */; };
 		B8862B762730AABB00832DB8 /* AsyncWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8862B752730AABB00832DB8 /* AsyncWebImage.swift */; };
+		B8862B782730B27300832DB8 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8862B772730B27300832DB8 /* Debouncer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		B8862B7127307A8600832DB8 /* FlickrFeedMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrFeedMapper.swift; sourceTree = "<group>"; };
 		B8862B73273096CC00832DB8 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		B8862B752730AABB00832DB8 /* AsyncWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncWebImage.swift; sourceTree = "<group>"; };
+		B8862B772730B27300832DB8 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		BC2B69E52D3C10A44B83906B /* Pods-FlickrApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrApp.debug.xcconfig"; path = "Target Support Files/Pods-FlickrApp/Pods-FlickrApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,6 +240,7 @@
 				B87745E8272F9E1300F03911 /* CancelBag.swift */,
 				B87745F0272FA55F00F03911 /* Loadable.swift */,
 				B87745F2272FA65000F03911 /* NetworkingHelpers.swift */,
+				B8862B772730B27300832DB8 /* Debouncer.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				B87745FC272FBC5600F03911 /* DependencyInjector.swift in Sources */,
 				B8862B6B2730683100832DB8 /* Binding+Additions.swift in Sources */,
 				B87745B2272F93EE00F03911 /* ContentView.swift in Sources */,
+				B8862B782730B27300832DB8 /* Debouncer.swift in Sources */,
 				B87745EB272FA18D00F03911 /* APIEndpoint.swift in Sources */,
 				B8862B762730AABB00832DB8 /* AsyncWebImage.swift in Sources */,
 				B87745F3272FA65000F03911 /* NetworkingHelpers.swift in Sources */,

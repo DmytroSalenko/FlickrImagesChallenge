@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
   @Environment(\.injected) private var injected: DIContainer
-  @State private var searchTags = ""
+  @StateObject var textObserver = Debouncer("", interval: 0.5)
   @State private var tagSearchData: Loadable<FlickrFeed> = .idle
   
   var body: some View {
@@ -35,17 +35,15 @@ private extension ContentView {
     VStack {
       HStack(spacing: 10) {
         Image(systemName: "magnifyingglass")
-        TextField(
-          "One or multiple comma-separated tags",
-          text:
-            $searchTags
-            .onSet {
-              if !$0.isEmpty {
-                performTagSearch(tags: $0)
-              } else {
-                clearFeed()
-              }
-            })
+        TextField("One or multiple comma-separated tags",
+          text: $textObserver.immediateValue)
+          .onReceive(textObserver.$debouncedValue, perform: {
+            if !$0.isEmpty {
+              performTagSearch(tags: $0)
+            } else {
+              clearFeed()
+            }
+          })
       }
     }
   }
@@ -86,10 +84,13 @@ private extension ContentView {
 //MARK: - Side Effects
 private extension ContentView {
   func performTagSearch(tags: String) {
-    injected.interactors.flickrFeedInteractor.performLogIn($tagSearchData, tags: searchTags)
+    injected.interactors.flickrFeedInteractor
+      .performLogIn($tagSearchData, tags: tags)
   }
   
   func clearFeed() {
+    injected.interactors.flickrFeedInteractor
+      .cancelSubscriptions()
     tagSearchData = .idle
   }
 }
