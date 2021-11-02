@@ -10,6 +10,9 @@ import SDWebImageSwiftUI
 
 struct DetailsView: View {
   private var feedItemData: FlickrFeedItem
+  private var imageContainer = ImageContainer()
+  @State private var displayShareSheet = false
+  @State private var imageSize: CGSize?
   
   init(feedItemData: FlickrFeedItem) {
     self.feedItemData = feedItemData
@@ -18,21 +21,44 @@ struct DetailsView: View {
   var body: some View {
     VStack {
       Text(feedItemData.title)
-      WebImage(url: feedItemData.sourceURL)
+      
+      imageView
+      
       Spacer()
-      imageData
+      
+      imageDescriptionText
         .padding()
       
     }
+    .toolbar(content: {
+      Button("Share") {
+        if imageContainer.image != nil {
+          displayShareSheet.toggle()
+        }
+      }
+    })
+    .sheet(isPresented: $displayShareSheet, content: {
+      ShareSheet(items: [imageContainer.image!])
+    })
   }
 }
 
 //MARK: - Content Views
 private extension DetailsView {
-  @ViewBuilder var imageData: some View {
+  @ViewBuilder var imageView: some View {
+    WebImage(url: feedItemData.sourceURL)
+      .onSuccess() { image, data, cacheType in
+        DispatchQueue.main.async {
+          imageContainer.image = image
+          imageSize = image.size
+        }
+      }
+  }
+  
+  @ViewBuilder var imageDescriptionText: some View {
     VStack(alignment: .leading) {
-      if let imageSize = feedItemData.imageSize {
-        Text("Image size: ") + Text("\(imageSize.width)x\(imageSize.height)")
+      if let imageSize = imageSize {
+        Text("Image size: ") + Text("\(imageSize.width, specifier: "%.2f") x \(imageSize.height, specifier: "%.2f")")
       } else {
         Text("Image size: unknown")
       }
@@ -42,6 +68,12 @@ private extension DetailsView {
     }
     .fixedSize(horizontal: false, vertical: true)
     .lineLimit(nil)
+  }
+}
+
+private extension DetailsView {
+  final class ImageContainer {
+    var image: UIImage?
   }
 }
 

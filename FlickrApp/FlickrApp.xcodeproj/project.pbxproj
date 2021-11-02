@@ -36,6 +36,7 @@
 		B8862B74273096CC00832DB8 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8862B73273096CC00832DB8 /* DetailsView.swift */; };
 		B8862B762730AABB00832DB8 /* AsyncWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8862B752730AABB00832DB8 /* AsyncWebImage.swift */; };
 		B8862B782730B27300832DB8 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8862B772730B27300832DB8 /* Debouncer.swift */; };
+		B8862B7A2731A98700832DB8 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8862B792731A98700832DB8 /* ShareSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		B8862B73273096CC00832DB8 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		B8862B752730AABB00832DB8 /* AsyncWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncWebImage.swift; sourceTree = "<group>"; };
 		B8862B772730B27300832DB8 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
+		B8862B792731A98700832DB8 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		BC2B69E52D3C10A44B83906B /* Pods-FlickrApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrApp.debug.xcconfig"; path = "Target Support Files/Pods-FlickrApp/Pods-FlickrApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -268,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				B8862B752730AABB00832DB8 /* AsyncWebImage.swift */,
+				B8862B792731A98700832DB8 /* ShareSheet.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				B8774600272FBD0C00F03911 /* FlickrFeedInteractor.swift in Sources */,
 				B87745F8272FB7E700F03911 /* JSONDecoder+Additions.swift in Sources */,
 				B8862B7027307A3B00832DB8 /* FlickrFeed.swift in Sources */,
+				B8862B7A2731A98700832DB8 /* ShareSheet.swift in Sources */,
 				B8774602272FC47700F03911 /* AppEnvironment.swift in Sources */,
 				B8862B74273096CC00832DB8 /* DetailsView.swift in Sources */,
 				B87745E9272F9E1300F03911 /* CancelBag.swift in Sources */,
