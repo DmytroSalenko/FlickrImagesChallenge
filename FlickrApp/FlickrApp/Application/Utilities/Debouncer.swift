@@ -28,6 +28,7 @@ final class Debouncer<T>: ObservableObject {
       .store(in: cancelBag)
   }
       
-  
-  
+  deinit {
+    cancelBag.cancel()
+  }
 }

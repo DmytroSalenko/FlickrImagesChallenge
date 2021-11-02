@@ -22,6 +22,7 @@ struct ContentView: View {
       }
       .navigationBarHidden(true)
     }
+    .navigationViewStyle(StackNavigationViewStyle())
     .onDisappear {
       injected.interactors.flickrFeedInteractor.cancelSubscriptions()
     }
@@ -56,8 +57,8 @@ private extension ContentView {
       loadingAnimation
     case .loaded(let data):
       FeedGrid(items: data.items)
-    case .failed(_):
-      Spacer()
+    case .failed(let error):
+      errorText(error: error)
     @unknown default:
       Spacer()
     }
@@ -75,6 +76,18 @@ private extension ContentView {
     VStack {
       Spacer()
       ProgressView()
+      Spacer()
+    }
+  }
+  
+  @ViewBuilder func errorText(error: Error) -> some View {
+    VStack {
+      Spacer()
+      #if DEBUG
+      Text(error.localizedDescription)
+      #else
+      Text("Oops.. something went wrong")
+      #endif
       Spacer()
     }
   }

@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 struct FeedGrid: View {
   private var feedItems: [FlickrFeedItem]
-  private var gridItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+  private var gridItemLayout = [GridItem(.adaptive(minimum: 200), alignment: .topLeading)]
   
   init(items: [FlickrFeedItem]) {
     feedItems = items
@@ -21,7 +21,7 @@ struct FeedGrid: View {
       LazyVGrid(columns: gridItemLayout, spacing: 5) {
         ForEach(feedItems) { feedData in
           NavigationLink(
-            destination: DetailsView(),
+            destination: DetailsView(feedItemData: feedData),
             label: {
               AsyncWebImage(url: feedData.sourceURL)
             })
