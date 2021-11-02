@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 struct FeedGrid: View {
   private var feedItems: [FlickrFeedItem]
-  private var gridItemLayout = [GridItem(.adaptive(minimum: 200), alignment: .topLeading)]
+  private var gridItemLayout = [GridItem(.adaptive(minimum: 150), alignment: .topLeading)]
   
   init(items: [FlickrFeedItem]) {
     feedItems = items

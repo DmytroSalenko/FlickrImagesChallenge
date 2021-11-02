@@ -37,6 +37,7 @@ private extension ContentView {
       Image(systemName: "magnifyingglass")
       TextField("One or multiple comma-separated tags",
                 text: $textObserver.immediateValue)
+        .minimumScaleFactor(0.5)
         .onReceive(textObserver.$debouncedValue, perform: {
           if !$0.isEmpty {
             performTagSearch(tags: $0)

@@ -9,3 +9,8 @@ Additional features:
 - Dynamic text support
 - Support for landscape orientation
 - A button to share the image
+
+Third Party Dependencies:
+- SDWebImageSwiftUI
+
+To install dependencies run 'pod install' in the location of the Podfile
