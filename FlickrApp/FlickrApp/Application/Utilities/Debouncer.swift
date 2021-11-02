@@ -9,6 +9,8 @@ import Foundation
 import Combine
 
 final class Debouncer<T>: ObservableObject {
+  /* An object that publishes the updates of the wrapped value only
+   only after a specified time elapses. */
   private var cancelBag = CancelBag()
 
   @Published var debouncedValue: T

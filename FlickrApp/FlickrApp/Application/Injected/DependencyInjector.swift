@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-// MARK: - DIContainer
+// MARK: - DIContainer to store all the modulce of the app
 final class DIContainer: EnvironmentKey {
   typealias Value = DIContainer
   static var defaultValue: DIContainer = DIContainer(interactors: .stub)
@@ -35,7 +35,6 @@ extension EnvironmentValues {
 
 // MARK: - Injection in the view hierarchy
 extension View {
-  
   func inject(_ interactors: DIContainer.Interactors) -> some View {
     let container = DIContainer(interactors: interactors)
     return inject(container)

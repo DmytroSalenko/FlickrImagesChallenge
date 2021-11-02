@@ -28,7 +28,6 @@ struct DetailsView: View {
       
       imageDescriptionText
         .padding()
-      
     }
     .toolbar(content: {
       Button("Share") {
@@ -64,7 +63,6 @@ private extension DetailsView {
       }
       
       Text("Tags: " + feedItemData.processedTags)
-        
     }
     .fixedSize(horizontal: false, vertical: true)
     .lineLimit(nil)

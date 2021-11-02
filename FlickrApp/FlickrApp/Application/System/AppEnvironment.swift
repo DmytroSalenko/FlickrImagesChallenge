@@ -13,6 +13,9 @@ struct AppEnvironment {
 }
 
 extension AppEnvironment {
+  /* The only purpose of this function is to configure our application.
+   It instantiates all the interactors and clients in order to inject them
+   into the app environment */
   static func bootstrap() -> AppEnvironment {
     let session = configuredURLSession()
     let webClients = configuredWebClients(session: session)

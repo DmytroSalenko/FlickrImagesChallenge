@@ -16,7 +16,7 @@ struct ContentView: View {
     NavigationView {
       VStack {
         searchTextField
-        .padding()
+          .padding()
         
         pageContentView
       }
@@ -33,20 +33,25 @@ struct ContentView: View {
 //MARK: - Content Views
 private extension ContentView {
   @ViewBuilder var searchTextField: some View {
-    VStack {
-      HStack(spacing: 10) {
-        Image(systemName: "magnifyingglass")
-        TextField("One or multiple comma-separated tags",
-          text: $textObserver.immediateValue)
-          .onReceive(textObserver.$debouncedValue, perform: {
-            if !$0.isEmpty {
-              performTagSearch(tags: $0)
-            } else {
-              clearFeed()
-            }
-          })
-      }
+    HStack(spacing: 10) {
+      Image(systemName: "magnifyingglass")
+      TextField("One or multiple comma-separated tags",
+                text: $textObserver.immediateValue)
+        .onReceive(textObserver.$debouncedValue, perform: {
+          if !$0.isEmpty {
+            performTagSearch(tags: $0)
+          } else {
+            clearFeed()
+          }
+        })
     }
+    .padding()
+    .background(
+      Rectangle()
+        .foregroundColor(.gray)
+        .frame(height: 50)
+        .cornerRadius(25)
+    )
   }
   
   @ViewBuilder var pageContentView: some View {
@@ -98,7 +103,7 @@ private extension ContentView {
 private extension ContentView {
   func performTagSearch(tags: String) {
     injected.interactors.flickrFeedInteractor
-      .performLogIn($tagSearchData, tags: tags)
+      .performFeedSearch($tagSearchData, tags: tags)
   }
   
   func clearFeed() {
